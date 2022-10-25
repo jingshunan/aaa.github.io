@@ -1,0 +1,50 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <title>Lab3</title>
+    <script id="rot-v-shader" type="x-shader/x-vertex">
+	attribute vec4 vPosition;
+	uniform float theta;
+
+	void main()
+	{
+		float u = cos( theta );
+		float v = sin( theta );
+
+		gl_Position.x = vPosition.x * u - vPosition.y * v;
+		gl_Position.y = vPosition.x * v + vPosition.y * u;
+		gl_Position.z = 0.0;
+		gl_Position.w = 1.0;
+	}
+	</script>
+
+    <script id="rot-f-shader" type="x-shader/x-fragment">
+	precision mediump float;
+
+	void main()
+	{
+		gl_FragColor = vec4( 1.0, 0.0, 0.0, 1.0 );
+		
+	}
+	</script>
+
+    <script type="text/javascript" src="../common/webgl-utils.js"></script>
+    <script type="text/javascript" src="../common/initShaders.js"></script>
+    <script type="text/javascript" src="../common/gl-matrix-min.js"></script>
+
+    <script type="text/javascript" src="new_file.js"></script>
+</head>
+<body onload="initRotSquare()">
+    <div>任务d：为绘制元素或动画效果添加鼠标或按键事件支持</div>
+    <canvas id="rot-canvas" width="500px" height="500px">你的浏览器不支持HTML5 canvas元素</canvas>
+	<br />
+<!-- 	<input type="button" value="改变转动方向" onclick="inturn();"/>
+	<br /> -->
+	<!-- 滑动条 -->
+	转动速度：<input type="range" value="0.5" id="speedd" min="0" max="1" step="0.1" onchange="inspeed();"/>
+</body>
+
+</html>
