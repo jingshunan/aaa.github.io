@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			html,body{
+				height: 600px;
+				width: 800px;
+				margin: 0;
+				padding: 0;
+				text-align: center;
+				vertical-align: middle;
+			}
+			svg,div.sp{
+				height: 500px;
+				width: 700px;
+				display: inline-block;
+				float: left;
+				margin: 10px;
+			}
+			div.sp{
+				border-radius:50%;
+				background: radial-gradient(ellipse 50% 50% at 30% 30%,green 20%,rgba(80%,90%,78%,0.8) 40%,transparent),
+				radial-gradient(ellipse 60% 60% at 40% 40%,red 30%,rgba(80%,90%,78%,0.8) 40%,transparent),
+
+				radial-gradient(ellipse 70% 70% at 50% 50%,dark 40%,rgba(80%,90%,78%,0.8) 40%,transparent);
+			}
+			
+		</style>
+	</head>
+	<body>
+		<svg>
+			<radialGradient id="sphere" cx="50%" cy="50%" r="80%" fx="40%" fy="40%">
+				<stop stop-color="white" offset="0.2" />
+				<stop stop-color="black" offset="0.8" />
+			</radialGradient>
+			<circle cx="50%" cy="50%" r="30%" fill="url(#sphere)" />
+		</svg>
+		<div class="sp"></div>
+	</body>
+</html>

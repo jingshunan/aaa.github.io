@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<!--做一个正方体      3D模型 球 圆柱   多层-->
+		<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+		<style type="text/css">
+			.eye{
+				width: 100px;
+				height: 100px;
+				position:absolute ;
+				top: 50%;
+				left: 50%;
+				margin-top: -50px;
+				margin-left: -50px;
+				-webkit-perspective: 10000px;/*透视距*/
+			}
+			.stage{
+				width: 100px;
+				height: 100px;
+				border: 1px solid red;
+				transform-style: preserve-3d;
+				transform: rotate3d(10,20,0,70deg)
+			}
+			.stage>div{
+				width: 100px;
+				height: 100px;
+				opacity:0.95;
+				text-align: center;
+				line-height: 100px;
+				font-size: 30px;
+				position: absolute;
+				top: 0px;
+				left: 0px;
+				
+			}
+			.stage:hover{
+				transform: rotate3d(0,10,0,360deg);
+				transition: 40s;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="eye">
+			<div class="stage">			
+				<script>
+				for(var k= -2 ; k <= 2 ; k++){
+					for(var j= -1 ; j <= 1 ; j++){
+						for (var i=-1;i<=1;i++){
+						    a='<div style="';
+						    a+="background-color: rgb("+Math.round(Math.random()*255)+","+Math.round(Math.random()*255)+","+Math.round(Math.random()*255)+");";
+							a+=' transform: translateX('+i*200+'px)'+' translateY('+j*200+'px)'+'translateZ('+k*300+'px);';
+						    a+='">';
+						    a+=i;
+							a+='</div>';
+						   $(".stage").append(a);
+						 }
+					}
+				}
+				</script>
+			</div>
+		</div>
+	</body>
+</html>
+
